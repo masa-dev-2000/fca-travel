@@ -1,57 +1,175 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>京都 9/12–13 旅程カレンダー</title>
 <style>
-:root{--bg:#f6f7f8;--card:#fff;--text:#17191d;--muted:#68707c;--line:#e4e7eb;--accent:#1f6f54;--sel:#dff2e8;--bad:#b42318;--badbg:#fff0ee;--hour:72px}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif}.wrap{max-width:980px;margin:auto;padding:16px 12px 110px}.header{position:sticky;top:0;z-index:50;background:rgba(246,247,248,.94);backdrop-filter:blur(12px);padding:8px 0 14px}h1{margin:0 0 5px;font-size:23px}.sub{font-size:13px;color:var(--muted);line-height:1.55}.day{margin-top:20px}.dayhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.dayhead h2{margin:0;font-size:19px}.badge{font-size:12px;background:#eef1f4;padding:6px 9px;border-radius:999px;color:#4c5561}.calendar{display:grid;grid-template-columns:58px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.06)}.times{position:relative;background:#fafbfc;border-right:1px solid var(--line)}.time-label{position:absolute;right:8px;transform:translateY(-50%);font-size:11px;color:#7b838e}.grid{position:relative;background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--hour) - 1px),#eceff2 calc(var(--hour) - 1px),#eceff2 var(--hour))}.half-line{position:absolute;left:0;right:0;border-top:1px dashed #f0f1f3}.event{position:absolute;border:1px solid #cfd8d3;background:#f7fbf9;border-radius:12px;padding:7px 8px;cursor:pointer;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;touch-action:pan-y}.event.selected{background:var(--sel);border-color:var(--accent)}.event.conflict{background:var(--badbg);border-color:#efb4ad}.title{font-weight:800;font-size:12px;line-height:1.25;word-break:break-word}.time{font-size:10px;color:#5e6672;margin-top:2px}.meta{font-size:9px;color:#6f7884;margin-top:4px;line-height:1.3}.card-url{display:inline-block;margin-top:5px;padding:3px 6px;border-radius:999px;background:#fff;border:1px solid #c9d8d0;color:var(--accent);font-size:9px;font-weight:800;text-decoration:none;line-height:1.4}.event.selected .card-url{background:rgba(255,255,255,.72)}.notice{display:none;margin:10px 0;padding:10px 12px;border:1px solid #efb4ad;background:var(--badbg);color:#8d2119;border-radius:12px;font-size:12px}.notice.show{display:block}.legend{margin:8px 2px 0;font-size:11px;color:var(--muted);line-height:1.5}.details{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px}.details h3{font-size:14px;margin:0 0 8px}.selected-list{display:grid;gap:7px}.selected-item{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;background:#f8faf9;border-radius:10px;font-size:12px}.hotel-section{margin:24px 0 6px}.hotel-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:10px}.hotel-head h2{font-size:19px;margin:0}.hotel-note{font-size:11px;color:var(--muted);text-align:right}.hotel-strip{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}.hotel-card{flex:0 0 260px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.05);scroll-snap-align:start;cursor:pointer}.hotel-card img{display:block;width:100%;height:150px;object-fit:cover;background:#e9ecef}.hotel-body{padding:10px}.hotel-name{font-size:14px;font-weight:800;line-height:1.3}.hotel-price{font-size:15px;font-weight:850;color:var(--accent);margin-top:5px}.hotel-sub{font-size:11px;color:var(--muted);line-height:1.45;margin-top:4px}.hotel-chip{display:inline-block;font-size:10px;background:#eaf5ef;color:var(--accent);padding:4px 7px;border-radius:999px;margin-top:6px}.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.48);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:16px}.modal-backdrop.show{display:flex}.modal{width:min(680px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:20px;padding:16px;box-shadow:0 20px 60px rgba(0,0,0,.25)}.modal img{width:100%;height:240px;object-fit:cover;border-radius:14px}.modal-top{display:flex;justify-content:space-between;gap:12px;margin:12px 0}.modal h3{font-size:20px;margin:0}.modal-close{background:#eef1f4;color:#333;padding:8px 11px}.modal-grid{display:grid;grid-template-columns:120px 1fr;gap:8px 12px;font-size:13px;line-height:1.5}.modal-label{font-weight:800;color:#555}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.modal-actions a{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;padding:9px 12px;border-radius:10px;font-size:12px;font-weight:800}.modal-actions a.secondary{background:#eef4f1;color:var(--accent)}.summary{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}.summary-inner{max-width:980px;margin:auto;display:flex;gap:10px;align-items:center}.summary-text{flex:1;min-width:0;font-size:12px;color:#4d5560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}button{border:0;background:var(--accent);color:#fff;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800}@media(max-width:600px){:root{--hour:68px}.wrap{padding-left:8px;padding-right:8px}.calendar{grid-template-columns:50px 1fr}.event{padding:5px 6px}.title{font-size:10px}.meta{font-size:8px}.card-url{font-size:8px;padding:2px 5px}.hotel-card{flex-basis:225px}.hotel-card img{height:132px}.hotel-note{max-width:180px}.modal{padding:12px}.modal img{height:200px}.modal-grid{grid-template-columns:92px 1fr;font-size:12px}}
+:root{--bg:#f6f7f8;--card:#fff;--text:#17191d;--muted:#68707c;--line:#e4e7eb;--accent:#1f6f54;--sel:#dff2e8;--bad:#b42318;--badbg:#fff0ee;--hour:72px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Yu Gothic",sans-serif}
+.wrap{max-width:1050px;margin:auto;padding:16px 12px 120px}.header{position:sticky;top:0;z-index:50;background:rgba(246,247,248,.95);backdrop-filter:blur(12px);padding:8px 0 14px}
+h1{font-size:23px;margin:0 0 5px}.sub{font-size:13px;color:var(--muted);line-height:1.55}.day{margin-top:20px}.dayhead{display:flex;justify-content:space-between;align-items:end;margin-bottom:10px}.dayhead h2{font-size:19px;margin:0}.badge,.chip{font-size:11px;padding:5px 8px;border-radius:999px;background:#eef1f4;color:#4d5561;display:inline-block}.chip.ok{background:#e8f5ee;color:#116443}.chip.warn{background:#fff5dd;color:#8a5a00}
+.calendar{display:grid;grid-template-columns:58px 1fr;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.06)}
+.times{position:relative;background:#fafbfc;border-right:1px solid var(--line)}.time-label{position:absolute;right:8px;transform:translateY(-50%);font-size:11px;color:#7b838e}
+.grid{position:relative;background:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--hour) - 1px),#eceff2 calc(var(--hour) - 1px),#eceff2 var(--hour))}
+.half-line{position:absolute;left:0;right:0;border-top:1px dashed #f0f1f3}
+.event{position:absolute;border:1px solid #cfd8d3;background:#f7fbf9;border-radius:12px;padding:7px 8px;cursor:pointer;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;scrollbar-gutter:stable;touch-action:pan-y}
+.event.selected{background:var(--sel);border-color:var(--accent)}.event.conflict{background:var(--badbg);border-color:#efb4ad}.title{font-weight:800;font-size:12px;line-height:1.25;word-break:break-word}.time{font-size:10px;color:#5e6672;margin-top:2px}.meta{font-size:9px;color:#6f7884;margin-top:4px;line-height:1.35}.card-url{display:inline-block;margin-top:5px;padding:3px 6px;border-radius:999px;background:#fff;border:1px solid #c9d8d0;color:var(--accent);font-size:9px;font-weight:800;text-decoration:none}
+.notice{display:none;margin:10px 0;padding:10px 12px;border:1px solid #efb4ad;background:var(--badbg);color:#8d2119;border-radius:12px;font-size:12px}.notice.show{display:block}.legend{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5}
+.hotel-section{margin:28px 0 10px}.hotel-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin-bottom:10px}.hotel-head h2{font-size:19px;margin:0}.hotel-note{font-size:11px;color:var(--muted);text-align:right;max-width:520px;line-height:1.5}
+.hotel-strip{display:flex;gap:12px;overflow-x:auto;padding:2px 2px 12px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+.hotel-card{flex:0 0 285px;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 5px 18px rgba(0,0,0,.05);scroll-snap-align:start;cursor:pointer}
+.hotel-photo{height:150px;position:relative;background:linear-gradient(135deg,#dfe8e3,#f5efe4);display:flex;align-items:center;justify-content:center;font-size:46px}
+.hotel-photo small{position:absolute;right:8px;bottom:7px;background:rgba(255,255,255,.88);padding:3px 6px;border-radius:999px;font-size:9px;color:#555}
+.hotel-body{padding:11px}.hotel-name{font-weight:800;font-size:14px;line-height:1.3}.hotel-price{font-weight:850;color:var(--accent);font-size:15px;margin-top:5px}.hotel-sub{font-size:11px;color:var(--muted);line-height:1.45;margin-top:4px}.hotel-status{margin-top:7px;display:flex;gap:5px;flex-wrap:wrap}
+.criteria{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;margin:12px 0;font-size:12px;line-height:1.6}.criteria b{color:var(--accent)}
+.modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.48);display:none;align-items:flex-end;justify-content:center;z-index:100;padding:16px}.modal-backdrop.show{display:flex}.modal{width:min(680px,100%);max-height:88vh;overflow:auto;background:#fff;border-radius:20px;padding:16px}.modal-top{display:flex;justify-content:space-between;gap:10px}.modal h3{margin:0;font-size:20px}.modal-grid{display:grid;grid-template-columns:125px 1fr;gap:8px 12px;font-size:13px;line-height:1.5;margin-top:14px}.modal-label{font-weight:800;color:#555}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.modal-actions a{background:var(--accent);color:#fff;text-decoration:none;padding:9px 12px;border-radius:10px;font-size:12px;font-weight:800}.modal-actions a.secondary{background:#eef4f1;color:var(--accent)}
+.details{margin-top:14px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px}.details h3{font-size:14px;margin:0 0 8px}.selected-list{display:grid;gap:7px}.selected-item{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;background:#f8faf9;border-radius:10px;font-size:12px}.travel-warn{margin-top:10px;padding:10px 12px;border-radius:12px;background:#fff5dd;color:#795100;font-size:12px;line-height:1.55}.travel-ok{margin-top:10px;padding:10px 12px;border-radius:12px;background:#eaf5ef;color:#175f45;font-size:12px;line-height:1.55}
+.summary{position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px calc(10px + env(safe-area-inset-bottom))}.summary-inner{max-width:1050px;margin:auto;display:flex;gap:10px;align-items:center}.summary-text{flex:1;min-width:0;font-size:12px;color:#4d5560;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}button{border:0;background:var(--accent);color:#fff;border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800}
+@media(max-width:600px){:root{--hour:68px}.wrap{padding-left:8px;padding-right:8px}.calendar{grid-template-columns:50px 1fr}.event{padding:5px 6px}.title{font-size:10px}.meta{font-size:8px}.card-url{font-size:8px;padding:2px 5px}.hotel-card{flex-basis:235px}.hotel-photo{height:130px}.hotel-note{max-width:170px}.modal-grid{grid-template-columns:92px 1fr;font-size:12px}}
 </style>
 </head>
-<body><div class="wrap"><div class="header"><h1>京都 9/12–13 旅程カレンダー</h1><div class="sub">2026/9/12（土）・9/13（日）に開催・営業する根拠が確認できた候補を中心に掲載。宿は9/12チェックイン→9/13チェックアウトで料金・空室表示が確認できた候補のみ掲載。</div></div><div id="app"></div><div class="details"><h3>選択中の旅程</h3><div id="selected" class="selected-list"></div></div></div><div class="summary"><div class="summary-inner"><div id="summary" class="summary-text"></div><button id="copy">旅程をコピー</button></div></div>
-<div id="hotelModal" class="modal-backdrop"><div class="modal"><img id="modalImg" alt=""><div class="modal-top"><h3 id="modalName"></h3><button class="modal-close" id="modalClose">閉じる</button></div><div id="modalGrid" class="modal-grid"></div><div id="modalActions" class="modal-actions"></div></div></div>
+<body>
+<div class="wrap">
+<div class="header"><h1>京都 9/12–13 旅程カレンダー</h1><div class="sub">移動時間を概算して、時間が足りない組み合わせは警告。宿は <b>7名・2室以上・1人1万円以内（総額7万円以内）</b> を条件に再整理。</div></div>
+<div id="app"></div>
+<div class="details"><h3>選択中の旅程</h3><div id="selected" class="selected-list"></div><div id="travelCheck"></div></div>
+</div>
+<div class="summary"><div class="summary-inner"><div id="summary" class="summary-text"></div><button id="copy">旅程をコピー</button></div></div>
+<div id="hotelModal" class="modal-backdrop"><div class="modal"><div class="modal-top"><h3 id="modalName"></h3><button id="modalClose">閉じる</button></div><div id="modalGrid" class="modal-grid"></div><div id="modalActions" class="modal-actions"></div></div></div>
 <script>
-const HOTELS=[
-{id:'goodnature',name:'GOOD NATURE HOTEL KYOTO',price:'US$453 / 1泊・2名1室',area:'四条河原町',access:'京都河原町駅 徒歩2分 / 祇園四条駅 徒歩5分。翌朝の建仁寺に行きやすい。',amenities:'無料Wi‑Fi、レストラン/カフェ多数、WELL認証、28–35㎡のSuperior等。環境配慮型アメニティ。',evidence:'Expediaで2026/9/12→9/13の宿泊料金 US$453 total を確認。価格・残室は変動。',img:'https://fashionsnap-assets.com/article/images/2019/12/goodnaturestation_20191207_009.jpg',official:'https://goodnaturehotels.com/ja/home-ja/',book:'https://www.expedia.com/Kyoto-Hotels-GOOD-NATURE-HOTEL-KYOTO.h39079130.Hotel-Information?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=GOOD+NATURE+HOTEL+KYOTO'},
-{id:'gionkaraku',name:'Gion Ryokan Karaku',price:'CA$151 total / 1泊・2名1室',area:'祇園',access:'祇園エリア。建仁寺へ徒歩圏で、翌朝7:30の坐禅に最も楽な部類。',amenities:'無料Wi‑Fi、エアコン、朝食オプション、駐車場。和室系の旅館。',evidence:'Expediaで2026/9/12→9/13 CA$151 total の表示を確認。価格・残室は変動。',img:'https://imgfp.hotp.jp/IMGH/51/92/P033115192/P033115192_480.jpg',official:'https://www.karaku.com/',book:'https://www.expedia.ca/Kyoto-Hotels-Gion-Ryokan-Karaku.h9524308.Hotel-Information?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=Gion+Ryokan+Karaku'},
-{id:'nishiyama',name:'NISHIYAMA RYOKAN',price:'US$199–221 total / 1泊・2名1室',area:'京都市役所〜御所南',access:'市役所前駅徒歩約5分。建仁寺までは徒歩＋移動で約20分前後を見込む。',amenities:'大浴場/スパ、無料Wi‑Fi、レストラン、庭、ランドリー、荷物預かり、禁煙。',evidence:'Expedia/Hotels.comで2026/9/12→9/13 US$199–221 total の表示を確認。',img:'https://nishiyama-ryokan.hotels-in-kyoto.com/data/Pics/OriginalPhoto/17159/1715926/1715926357/nishiyama-ryokan-established-in-1953-kyoto-pic-57.JPEG',official:'https://www.nishiyama-ryokan.com/',book:'https://www.hotels.com/ho358598/nishiyama-ryokan-kyoto-japan/?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=NISHIYAMA+RYOKAN+Kyoto'},
-{id:'hyatt',name:'Hyatt Regency Kyoto',price:'US$380 total / 1泊・2名1室',area:'東山・七条',access:'東山。建仁寺へタクシー/バスで移動しやすい。和束方面にも市中心部より少し南寄り。',amenities:'スパ、フィットネス、レストラン、無料Wi‑Fi、エアコン。ラグジュアリー寄り。',evidence:'Expediaで2026/9/12→9/13 US$380 total の表示を確認。',img:'https://www.img-ikyu.com/contents/common/image/acc6/00001116/0/org/11855510.jpg?auto=compress%2Cformat&fit=crop&lossless=0',official:'https://www.hyatt.com/hyatt-regency/en-US/kyoto-hyatt-regency-kyoto',book:'https://www.expedia.com/Kyoto-Hotels-Hyatt-Regency-Kyoto.h1394998.Hotel-Information?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=Hyatt+Regency+Kyoto'},
-{id:'westin',name:'The Westin Miyako Kyoto',price:'US$427 total / 1泊・2名1室',area:'蹴上・東山',access:'蹴上駅すぐ。建仁寺へは地下鉄/タクシー。朝の移動は祇園泊より増える。',amenities:'スパ、クラブラウンジ、レストラン、フィットネス、客室眺望、京都駅シャトル。',evidence:'Expediaで2026/9/12→9/13 US$427 total の表示を確認。',img:'https://www.miyakohotels.ne.jp/datas/cache/images/2022/02/10/1300x2048_ea1e9d427fb5664c32c517a73e421e58_c67520adb398a523cbc5310dba436030784d2fbc.jpg',official:'https://www.miyakohotels.ne.jp/westinkyoto/',book:'https://www.expedia.com/Kyoto-Hotels-The-Westin-Miyako-Kyoto.h2728.Hotel-Information?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=The+Westin+Miyako+Kyoto'},
-{id:'okura',name:'Hotel Okura Kyoto Okazaki Bettei',price:'US$429 total / 1泊・2名1室',area:'岡崎',access:'平安神宮・岡崎エリア。建仁寺へはタクシー移動が現実的。静かさ重視。',amenities:'レストラン、無料Wi‑Fi、フィットネス、落ち着いた大人向け客室、庭・木格子デザイン。',evidence:'Expediaで2026/9/12→9/13 US$429 total の表示を確認。',img:'https://okazakibettei.hotelokurakyoto.com/lang_modules/images/concept/img_kyotookazaki_slide1-pc.jpg',official:'https://okazakibettei.hotelokurakyoto.com/',book:'https://www.expedia.com/Kyoto-Hotels-Hotel-Okura-Kyoto-Okazaki-Bettei.h72147826.Hotel-Information?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=Hotel+Okura+Kyoto+Okazaki+Bettei'},
-{id:'yachiyo',name:'Kyoto Nanzenji Garden Ryokan Yachiyo',price:'US$301–314 total / 1泊・2名1室',area:'南禅寺',access:'南禅寺横。建仁寺へはタクシー推奨。旅館体験を宿の主目的にするなら強い。',amenities:'日本庭園、レストラン、客室タイプにより風呂/ホットタブ、エアコン、朝食オプション。',evidence:'Expedia/Hotels.comで2026/9/12→9/13 US$301–314 total の表示を確認。',img:'https://www.myboutiquehotel.com/photos/119601/kyoto-nanzenji-ryokan-yachiyo-established-in-1915-jp-021-14868-2220x1400.jpg',official:'https://kyoto-ryokan.com/',book:'https://www.expedia.com/Kyoto-Hotels-Kyoto-Nanzenji-Ryokan-Yachiyo.h2214290.Hotel-Information?chkin=2026-09-12&chkout=2026-09-13',map:'https://www.google.com/maps/search/?api=1&query=Kyoto+Nanzenji+Garden+Ryokan+Yachiyo'}
-];
 const DAYS=[
 {date:'2026-09-12',label:'9/12（土）',badge:'昼集合・遊ぶ京都',start:11,end:22,events:[
-['lunch','12:00','13:00','京都駅周辺で集合・昼食','集合しやすさ優先',1,'https://www.google.com/maps/search/?api=1&query=京都駅+ランチ','地図'],
-['museum','13:30','15:00','京都伝統産業ミュージアム','10:00–18:00。9/12は休館日ではなく、9/12–13は京仏壇・京仏具技術コンクール展も開催。滞在時間は旅程上の例。',0,'https://kmtc.jp/','公式'],
-['kwasan','14:00','16:00','京都大学 花山天文台・土曜公開','9/12は公式公開日。自由見学/4D宇宙シアター。実際の開始時刻は予約ページで確認。要予約確認。',0,'https://www.kwasan.kyoto-u.ac.jp/open/kwasan/donichi.html','公式'],
-['whisky','14:00','16:00','ウイスキー・オリジナルボトル製作','9/12限定 14:00–16:00。二条城前。定員8名。要予約確認。',0,'https://shop.romanbeer.com/view/item/000000000589','予約'],
-['woodmill','15:00','17:00','WOODMILL BREWERY.KYOTO','9/12はTAP ROOM 11:00–17:00（L.O.16:30）。滞在時間は旅程上の例。',0,'https://woodmill-brewery.kyoto/','公式'],
-['beer','17:00','18:30','京都醸造 タップルーム','土日祝営業。5–9月は12:00–19:00（L.O.18:30）。',0,'https://kyotobrewing.com/pages/taproom','公式'],
-['dinner','19:00','21:00','発酵・日本酒系で夕食','翌朝に備えて深追いしない。店は後で選択。',1,'https://www.google.com/maps/search/?api=1&query=京都+発酵+日本酒+居酒屋','地図']]},
+['lunch','12:00','13:00','京都駅周辺で集合・昼食','集合しやすさ優先',1,'station','https://www.google.com/maps/search/?api=1&query=京都駅+ランチ','地図'],
+['museum','13:30','15:00','京都伝統産業ミュージアム','10:00–18:00。滞在時間は旅程上の例。',0,'higashiyama','https://kmtc.jp/','公式'],
+['kwasan','14:00','16:00','京都大学 花山天文台・土曜公開','9/12公式公開日。要予約確認。',0,'higashiyama','https://www.kwasan.kyoto-u.ac.jp/open/kwasan/donichi.html','公式'],
+['whisky','14:00','16:00','ウイスキー・オリジナルボトル製作','9/12限定 14:00–16:00。要予約確認。',0,'downtown','https://shop.romanbeer.com/view/item/000000000589','予約'],
+['woodmill','15:00','17:00','WOODMILL BREWERY.KYOTO','9/12営業。滞在時間は旅程上の例。',0,'west','https://woodmill-brewery.kyoto/','公式'],
+['beer','17:00','18:30','京都醸造 タップルーム','土日祝営業。5–9月 12:00–19:00。',0,'south','https://kyotobrewing.com/pages/taproom','公式'],
+['dinner','19:00','21:00','発酵・日本酒系で夕食','翌朝に備えて深追いしない。',1,'downtown','https://www.google.com/maps/search/?api=1&query=京都+発酵+日本酒+居酒屋','地図']
+]},
 {date:'2026-09-13',label:'9/13（日）',badge:'禅＋茶農業',start:6,end:19,events:[
-['tenryu','07:10','08:30','天龍寺 朝参拝','9/13限定。和尚の案内・雲龍図・曹源池庭園。3,000円、事前予約限定。要予約確認。',0,'https://ja.kyoto.travel/event/single.php?event_id=11994','予約'],
-['kennin','07:30','09:00','建仁寺「千光会」','9/13 7:30開始を公式告知。予約不要。法話は中止、坐禅と読経は実施予定。',1,'https://www.kenninji.jp/news/?cat=1','公式'],
-['breakfast','09:00','10:00','祇園で朝食','建仁寺後の休憩。',1,'https://www.google.com/maps/search/?api=1&query=祇園+朝食','地図'],
-['dmatcha','09:30','13:30','d:matcha Organic Matcha Farm Tour','9:30–13:30。茶畑・碾茶工場・石臼・単一品種抹茶/煎茶・農園ランチ。予約専用、9/13空席は要予約確認。',0,'https://dmatcha.com/products/tea-farm-tour-and-tasting-wazuka-kyoto','予約'],
-['move','10:00','11:30','和束へ移動','建仁寺→和束。車移動が組みやすい。',1,'https://www.google.com/maps/dir/?api=1&origin=建仁寺&destination=和束町','経路'],
-['obubu','11:00','15:00','京都おぶぶ茶苑 Guided Tea Tour','公式カレンダーで11:00 Guided Tea Tourを運用。9/13は専用シャトル運行日も確認。9/13のツアー空席は要予約確認。',0,'https://obubutea.com/guided-tea-tour/','予約'],
-['slow1','11:10','12:25','和束 Green Slow Mobility Tour','3–11月の土日祝に運行。11:10–12:25枠。茶畑景観と茶業解説。空きがあれば当日予約可。',0,'https://wazukanko.com/tour-guide-en/','公式'],
-['pick','12:00','13:00','和束家・季節の茶摘み','茶摘みシーズン内。9/13の個別枠は要予約確認。',0,'https://experiences.wazukahouse.com/tea-picking/','予約'],
-['ishidera','12:00','13:15','石寺の茶畑フィールド観察','茶畑景観を外から観察。私有茶園へ無断で入らない前提。',0,'https://www.google.com/maps/search/?api=1&query=石寺の茶畑+和束町','地図'],
-['slow2','13:30','14:45','和束 Green Slow Mobility Tour','3–11月の土日祝に運行。13:30–14:45枠。空きがあれば当日予約可。',0,'https://wazukanko.com/tour-guide-en/','公式'],
-['cafe','14:45','15:45','和束茶カフェ・農家茶比較','通常10:00–17:00、不定休。農家茶を比較する休憩枠。9/13営業は直前再確認推奨。',0,'https://wazukacha-cafe.com/pages/wazukacha-cafe','公式'],
-['slow3','15:00','16:10','和束 Green Slow Mobility Tour','3–11月の土日祝に運行。15:00–16:10枠。空きがあれば当日予約可。',0,'https://wazukanko.com/tour-guide-en/','公式'],
-['return','16:30','18:00','京都方面へ戻る','帰宅先に合わせて調整。',0,'https://www.google.com/maps/dir/?api=1&origin=和束町&destination=京都駅','経路']]}
+['tenryu','07:10','08:30','天龍寺 朝参拝','9/13限定。3,000円、事前予約限定。',0,'west','https://ja.kyoto.travel/event/single.php?event_id=11994','予約'],
+['kennin','07:30','09:00','建仁寺「千光会」','9/13 7:30開始。予約不要。坐禅＋読経。',1,'higashiyama','https://www.kenninji.jp/news/?cat=1','公式'],
+['breakfast','09:00','10:00','祇園で朝食','建仁寺後の休憩。',1,'higashiyama','https://www.google.com/maps/search/?api=1&query=祇園+朝食','地図'],
+['dmatcha','09:30','13:30','d:matcha Organic Matcha Farm Tour','9:30–13:30。9/13空席は要確認。',0,'wazuka','https://dmatcha.com/products/tea-farm-tour-and-tasting-wazuka-kyoto','予約'],
+['move','10:00','11:30','和束へ移動','建仁寺→和束の移動枠。',1,'wazuka','https://www.google.com/maps/dir/?api=1&origin=建仁寺&destination=和束町','経路'],
+['obubu','11:00','15:00','京都おぶぶ茶苑 Guided Tea Tour','11:00 Guided Tea Tour。9/13空席は要確認。',0,'wazuka','https://obubutea.com/guided-tea-tour/','予約'],
+['slow1','11:10','12:25','和束 Green Slow Mobility Tour','3–11月の土日祝。11:10枠。',0,'wazuka','https://wazukanko.com/tour-guide-en/','公式'],
+['pick','12:00','13:00','和束家・季節の茶摘み','茶摘みシーズン内。9/13枠は要確認。',0,'wazuka','https://experiences.wazukahouse.com/tea-picking/','予約'],
+['ishidera','12:00','13:15','石寺の茶畑フィールド観察','茶畑景観を外から観察。',0,'wazuka','https://www.google.com/maps/search/?api=1&query=石寺の茶畑+和束町','地図'],
+['slow2','13:30','14:45','和束 Green Slow Mobility Tour','13:30枠。',0,'wazuka','https://wazukanko.com/tour-guide-en/','公式'],
+['cafe','14:45','15:45','和束茶カフェ・農家茶比較','農家茶を比較する休憩枠。',0,'wazuka','https://wazukacha-cafe.com/pages/wazukacha-cafe','公式'],
+['slow3','15:00','16:10','和束 Green Slow Mobility Tour','15:00枠。',0,'wazuka','https://wazukanko.com/tour-guide-en/','公式'],
+['return','16:30','18:00','京都方面へ戻る','帰宅先に合わせて調整。',0,'station','https://www.google.com/maps/dir/?api=1&origin=和束町&destination=京都駅','経路']
+]}
 ];
-const M=t=>{const[h,m]=t.split(':').map(Number);return h*60+m},OV=(a,b)=>M(a.s)<M(b.e)&&M(b.s)<M(a.e);const chosen=new Set();
-function hotelSection(){const s=document.createElement('section');s.className='hotel-section';s.innerHTML=`<div class="hotel-head"><h2>9/12（土）宿泊候補</h2><div class="hotel-note">9/12 IN → 9/13 OUT<br>2名1室の検索時点価格</div></div><div class="hotel-strip">${HOTELS.map(h=>`<article class="hotel-card" data-hotel="${h.id}"><img src="${h.img}" alt="${h.name}" loading="lazy"><div class="hotel-body"><div class="hotel-name">${h.name}</div><div class="hotel-price">${h.price}</div><div class="hotel-sub">${h.area}<br>${h.access}</div><span class="hotel-chip">9/12宿泊表示あり</span></div></article>`).join('')}</div><div class="legend">価格は2026/9/12→9/13・2名1室の検索スナップショット。税表示や通貨、部屋タイプ、残室は変動します。カードを押すと詳細。</div>`;s.querySelectorAll('.hotel-card').forEach(c=>c.onclick=()=>openHotel(c.dataset.hotel));return s}
-function render(){const app=document.getElementById('app');app.innerHTML='';DAYS.forEach((d,idx)=>{const sec=document.createElement('section');sec.className='day';sec.innerHTML=`<div class="dayhead"><h2>${d.label}</h2><span class="badge">${d.badge}</span></div><div class="calendar"><div class="times"></div><div class="grid"></div></div><div class="notice"></div><div class="legend">クリックで選択/解除。重なる予定は同時選択できません。カード内は縦スクロールできます。</div>`;app.appendChild(sec);const times=sec.querySelector('.times'),grid=sec.querySelector('.grid');const hp=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hour'))||72,h=(d.end-d.start)*hp;times.style.height=grid.style.height=h+'px';for(let x=d.start;x<=d.end;x++){let y=(x-d.start)*hp,l=document.createElement('div');l.className='time-label';l.style.top=y+'px';l.textContent=String(x).padStart(2,'0')+':00';times.appendChild(l);if(x<d.end){let q=document.createElement('div');q.className='half-line';q.style.top=(y+hp/2)+'px';grid.appendChild(q)}}const els=[];d.events.forEach(v=>{const o={id:v[0],s:v[1],e:v[2],title:v[3],meta:v[4],def:v[5],url:v[6],urlLabel:v[7]||'URL'};if(o.def)chosen.add(o.id);const el=document.createElement('div');el.className='event'+(chosen.has(o.id)?' selected':'');el.dataset.id=o.id;el.innerHTML=`<div class="title">${o.title}</div><div class="time">${o.s}–${o.e}</div><div class="meta">${o.meta}</div>${o.url?`<a class="card-url" href="${o.url}" target="_blank" rel="noopener noreferrer">${o.urlLabel} ↗</a>`:''}`;el.style.top=((M(o.s)-d.start*60)/60*hp+4)+'px';el.style.height=Math.max((M(o.e)-M(o.s))/60*hp-8,46)+'px';grid.appendChild(el);els.push({el,...o});el.onclick=()=>toggle(sec,d,o,el);const a=el.querySelector('.card-url');if(a)a.onclick=e=>e.stopPropagation()});layout(els);if(idx===0)app.appendChild(hotelSection())});refresh()}
-function layout(arr){const sorted=[...arr].sort((a,b)=>M(a.s)-M(b.s)||M(a.e)-M(b.e));let groups=[],g=[],end=-1;for(const x of sorted){if(!g.length||M(x.s)<end){g.push(x);end=Math.max(end,M(x.e))}else{groups.push(g);g=[x];end=M(x.e)}}if(g.length)groups.push(g);for(const group of groups){let ends=[],as=[];for(const x of group){let c=ends.findIndex(e=>e<=M(x.s));if(c<0){c=ends.length;ends.push(M(x.e))}else ends[c]=M(x.e);as.push([x,c])}const n=ends.length;for(const[x,c]of as){x.el.style.left=`calc(${c/n*100}% + 4px)`;x.el.style.width=`calc(${100/n}% - 8px)`}}}
-function toggle(sec,d,o,el){const note=sec.querySelector('.notice');if(chosen.has(o.id)){chosen.delete(o.id);el.classList.remove('selected');note.classList.remove('show');refresh();return}const conflicts=d.events.map(v=>({id:v[0],s:v[1],e:v[2],title:v[3]})).filter(x=>chosen.has(x.id)&&OV(o,x));if(conflicts.length){el.classList.add('conflict');note.textContent='「'+conflicts.map(x=>x.title).join(' / ')+'」と時間が重なります。';note.classList.add('show');setTimeout(()=>el.classList.remove('conflict'),1000);return}chosen.add(o.id);el.classList.add('selected');note.classList.remove('show');refresh()}
-function rows(){let r=[];for(const d of DAYS)for(const v of d.events)if(chosen.has(v[0]))r.push({day:d.label.slice(0,4),s:v[1],e:v[2],title:v[3]});return r.sort((a,b)=>a.day.localeCompare(b.day)||M(a.s)-M(b.s))}
-function refresh(){const r=rows(),box=document.getElementById('selected');box.innerHTML=r.length?r.map(x=>`<div class="selected-item"><b>${x.day} ${x.s}–${x.e}</b><span>${x.title}</span></div>`).join(''):'<div>まだ予定が選択されていません。</div>';document.getElementById('summary').textContent=r.length?r.map(x=>`${x.day} ${x.s} ${x.title}`).join(' / '):'予定未選択'}
-function openHotel(id){const h=HOTELS.find(x=>x.id===id);if(!h)return;document.getElementById('modalImg').src=h.img;document.getElementById('modalImg').alt=h.name;document.getElementById('modalName').textContent=h.name;document.getElementById('modalGrid').innerHTML=`<div class="modal-label">宿泊日</div><div>2026/9/12（土）→ 9/13（日）・1泊</div><div class="modal-label">場所</div><div>${h.area}</div><div class="modal-label">価格</div><div>${h.price}</div><div class="modal-label">翌朝</div><div>${h.access}</div><div class="modal-label">アメニティ</div><div>${h.amenities}</div><div class="modal-label">空室根拠</div><div>${h.evidence}</div>`;document.getElementById('modalActions').innerHTML=`<a href="${h.book}" target="_blank" rel="noopener">9/12で空室確認 ↗</a><a class="secondary" href="${h.official}" target="_blank" rel="noopener">公式 ↗</a><a class="secondary" href="${h.map}" target="_blank" rel="noopener">地図 ↗</a>`;document.getElementById('hotelModal').classList.add('show')}
-function closeHotel(){document.getElementById('hotelModal').classList.remove('show')}
-document.getElementById('modalClose').onclick=closeHotel;document.getElementById('hotelModal').onclick=e=>{if(e.target.id==='hotelModal')closeHotel()};
-document.getElementById('copy').onclick=async()=>{const t=rows().map(x=>`${x.day} ${x.s}–${x.e} ${x.title}`).join('\n');try{await navigator.clipboard.writeText(t);alert('旅程をコピーしました')}catch(e){prompt('コピーしてください',t)}};render();
-</script></body></html>
+
+const HOTELS=[
+{
+name:'京乃宿 清水五条 呉竹荘',icon:'🏨',status:'最有力',price:'7,000円/人〜 → 7名なら約49,000円〜',rooms:'2室以上。和洋室は定員2〜4名。7名なら3名＋4名の2室構成が可能な客室タイプあり。',availability:'じゃらんの9/12検索で「お部屋お任せ・和洋室 素泊り 7,000円/人、あと2部屋」を確認。7名をその2室に割当可能かは予約画面で最終確認。',area:'東山・清水五条',kenninji:'建仁寺まで約0.7〜1km圏。徒歩約10〜15分目安。翌朝7:30にかなり強い。',amenities:'Wi‑Fi、浴場、コインランドリー、コンビニ徒歩3分。清水五条駅徒歩4〜5分。',budget:'総額7万円以内に収まる可能性が高い',confidence:'高（9/12価格＋残2室確認）',official:'https://kyoto.hotelkuretakeso.com/',book:'https://www.jalan.net/260000/LRG_262300/0912/?lpKbn=1',map:'https://www.google.com/maps/search/?api=1&query=京乃宿+清水五条+呉竹荘'
+},
+{
+name:'Rinn Gion Kenninji',icon:'🛏️',status:'予算内見込み',price:'9/12 最安 18,210円/2名1室〜',rooms:'Japanese Triple Roomは定員3名。7名なら 3名＋2名＋2名の3室構成。',availability:'9/12の料金表示を確認。3室同時空室は公開情報だけでは未確定。',area:'祇園・建仁寺すぐ',kenninji:'建仁寺至近。徒歩数分クラスで、朝7:30坐禅には最強。',amenities:'Wi‑Fi、バスタブ、冷蔵庫、セーフティボックス。トリプルはベッド2＋布団1。',budget:'3室を最安単価で仮置きすると約54,630円〜。部屋タイプ差額込みで7万円以内か要最終確認。',confidence:'中（価格と定員確認／3室在庫未確認）',official:'https://rinn-kyomachi.com/',book:'https://www.tour.ne.jp/j_hotel/46130/',map:'https://www.google.com/maps/search/?api=1&query=Rinn+Gion+Kenninji'
+},
+{
+name:'3BR Ensuite Rooms | Riverside View | Near Gion',icon:'🏠',status:'貸切候補',price:'近接日価格 AU$534/1棟（税・手数料込の表示例）',rooms:'7名・3ベッドルーム・3バス。1棟貸切なので「2部屋以上」の条件を満たす。',availability:'施設は7名対応。9/12→9/13・7名の正確な価格と空室は予約画面で要確認。',area:'宮川町〜祇園',kenninji:'Vrbo掲載では建仁寺徒歩10分以内。翌朝の坐禅に強い。',amenities:'キッチン、Wi‑Fi、洗濯機、乾燥機、冷蔵庫。',budget:'近接日価格は7万円圏内の可能性あり。ただし7名料金は変動するため未確定。',confidence:'中（定員・立地確認／当日価格未確定）',official:'https://www.airbnb.com/rooms/904551359012182156',book:'https://www.vrbo.com/en-au/holiday-rental/p20249624',map:'https://www.google.com/maps/search/?api=1&query=Miyagawasuji+Kyoto+Gion'
+}
+];
+
+const M=t=>{const[h,m]=t.split(':').map(Number);return h*60+m};
+const OV=(a,b)=>M(a.s)<M(b.e)&&M(b.s)<M(a.e);
+const chosen=new Set();
+const TRANSFER={
+'station|higashiyama':25,'higashiyama|station':25,
+'station|downtown':15,'downtown|station':15,
+'station|west':30,'west|station':30,
+'station|south':20,'south|station':20,
+'higashiyama|downtown':15,'downtown|higashiyama':15,
+'higashiyama|west':35,'west|higashiyama':35,
+'higashiyama|south':25,'south|higashiyama':25,
+'downtown|west':25,'west|downtown':25,
+'downtown|south':20,'south|downtown':20,
+'west|south':30,'south|west':30,
+'higashiyama|wazuka':80,'wazuka|higashiyama':80,
+'downtown|wazuka':90,'wazuka|downtown':90,
+'station|wazuka':85,'wazuka|station':85,
+'west|wazuka':105,'wazuka|west':105,
+'south|wazuka':80,'wazuka|south':80
+};
+function transfer(a,b){if(a===b)return 8; return TRANSFER[a+'|'+b]||20}
+
+function render(){
+ const app=document.getElementById('app'); app.innerHTML='';
+ DAYS.forEach((d,di)=>{
+  const sec=document.createElement('section');sec.className='day';
+  sec.innerHTML=`<div class="dayhead"><h2>${d.label}</h2><span class="badge">${d.badge}</span></div><div class="calendar"><div class="times"></div><div class="grid"></div></div><div class="notice"></div><div class="legend">クリックで選択/解除。重複時間は同時選択不可。移動時間は市内15〜35分、京都市内↔和束80〜105分を概算バッファとしてチェック。</div>`;
+  app.appendChild(sec);
+  const times=sec.querySelector('.times'),grid=sec.querySelector('.grid'),hp=parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hour'))||72,h=(d.end-d.start)*hp;
+  times.style.height=grid.style.height=h+'px';
+  for(let x=d.start;x<=d.end;x++){let y=(x-d.start)*hp,l=document.createElement('div');l.className='time-label';l.style.top=y+'px';l.textContent=String(x).padStart(2,'0')+':00';times.appendChild(l);if(x<d.end){let q=document.createElement('div');q.className='half-line';q.style.top=(y+hp/2)+'px';grid.appendChild(q)}}
+  const els=[];
+  d.events.forEach(v=>{
+   const o={id:v[0],s:v[1],e:v[2],title:v[3],meta:v[4],def:v[5],zone:v[6],url:v[7],urlLabel:v[8]};
+   if(o.def)chosen.add(o.id);
+   const el=document.createElement('div');el.className='event'+(chosen.has(o.id)?' selected':'');el.dataset.id=o.id;
+   el.innerHTML=`<div class="title">${o.title}</div><div class="time">${o.s}–${o.e}</div><div class="meta">${o.meta}</div><a class="card-url" href="${o.url}" target="_blank" rel="noopener">${o.urlLabel} ↗</a>`;
+   el.style.top=((M(o.s)-d.start*60)/60*hp+4)+'px';el.style.height=Math.max((M(o.e)-M(o.s))/60*hp-8,46)+'px';
+   grid.appendChild(el);els.push({el,...o});
+   el.onclick=()=>toggle(sec,d,o,el);el.querySelector('a').onclick=e=>e.stopPropagation();
+  });
+  layout(els);
+  if(di===0) renderHotels(app);
+ });
+ refresh();
+}
+function layout(arr){
+ const sorted=[...arr].sort((a,b)=>M(a.s)-M(b.s)||M(a.e)-M(b.e));let groups=[],g=[],end=-1;
+ for(const x of sorted){if(!g.length||M(x.s)<end){g.push(x);end=Math.max(end,M(x.e))}else{groups.push(g);g=[x];end=M(x.e)}}if(g.length)groups.push(g);
+ for(const group of groups){let ends=[],as=[];for(const x of group){let c=ends.findIndex(e=>e<=M(x.s));if(c<0){c=ends.length;ends.push(M(x.e))}else ends[c]=M(x.e);as.push([x,c])}const n=ends.length;for(const[x,c]of as){x.el.style.left=`calc(${c/n*100}% + 4px)`;x.el.style.width=`calc(${100/n}% - 8px)`}}
+}
+function toggle(sec,d,o,el){
+ const note=sec.querySelector('.notice');
+ if(chosen.has(o.id)){chosen.delete(o.id);el.classList.remove('selected');note.classList.remove('show');refresh();return}
+ const conflicts=d.events.map(v=>({id:v[0],s:v[1],e:v[2],title:v[3]})).filter(x=>chosen.has(x.id)&&OV(o,x));
+ if(conflicts.length){el.classList.add('conflict');note.textContent='「'+conflicts.map(x=>x.title).join(' / ')+'」と時間が重なります。';note.classList.add('show');setTimeout(()=>el.classList.remove('conflict'),1000);return}
+ chosen.add(o.id);el.classList.add('selected');note.classList.remove('show');refresh()
+}
+function renderHotels(app){
+ const wrap=document.createElement('section');wrap.className='hotel-section';
+ wrap.innerHTML=`<div class="hotel-head"><h2>9/12 宿泊候補</h2><div class="hotel-note">条件：7名 / 2室以上（または2ベッドルーム以上の貸切）/ 1人1万円以内 / 総額7万円以内 / 9/13朝の建仁寺への移動も考慮</div></div>
+ <div class="criteria"><b>今回の判定：</b>「京乃宿 清水五条 呉竹荘」を最有力。9/12に7,000円/人・残2室の表示があり、公式客室には2〜4名定員の和洋室があります。7名を2室に割り当てられるかは予約画面で最終確認してください。</div>
+ <div class="hotel-strip" id="hotelStrip"></div>`;
+ app.appendChild(wrap);
+ const strip=wrap.querySelector('#hotelStrip');
+ HOTELS.forEach((h,i)=>{
+  const c=document.createElement('article');c.className='hotel-card';
+  c.innerHTML=`<div class="hotel-photo">${h.icon}<small>宿イメージ</small></div><div class="hotel-body"><div class="hotel-name">${h.name}</div><div class="hotel-price">${h.price}</div><div class="hotel-sub">${h.area}<br>${h.kenninji}</div><div class="hotel-status"><span class="chip ${i===0?'ok':'warn'}">${h.status}</span><span class="chip">${h.confidence}</span></div></div>`;
+  c.onclick=()=>openHotel(h);strip.appendChild(c);
+ });
+}
+function openHotel(h){
+ document.getElementById('modalName').textContent=h.name;
+ const rows=[['場所',h.area],['料金',h.price],['部屋構成',h.rooms],['9/12空室根拠',h.availability],['建仁寺まで',h.kenninji],['アメニティ',h.amenities],['予算判定',h.budget],['確度',h.confidence]];
+ document.getElementById('modalGrid').innerHTML=rows.map(r=>`<div class="modal-label">${r[0]}</div><div>${r[1]}</div>`).join('');
+ document.getElementById('modalActions').innerHTML=`<a href="${h.book}" target="_blank">空室・予約 ↗</a><a class="secondary" href="${h.official}" target="_blank">公式/施設 ↗</a><a class="secondary" href="${h.map}" target="_blank">地図 ↗</a>`;
+ document.getElementById('hotelModal').classList.add('show');
+}
+function rows(){
+ let r=[];for(const d of DAYS)for(const v of d.events)if(chosen.has(v[0]))r.push({day:d.label.slice(0,4),date:d.date,s:v[1],e:v[2],title:v[3],zone:v[6]});
+ return r.sort((a,b)=>a.date.localeCompare(b.date)||M(a.s)-M(b.s))
+}
+function refresh(){
+ const r=rows(),box=document.getElementById('selected');box.innerHTML=r.length?r.map(x=>`<div class="selected-item"><b>${x.day} ${x.s}–${x.e}</b><span>${x.title}</span></div>`).join(''):'<div>まだ予定が選択されていません。</div>';
+ document.getElementById('summary').textContent=r.length?r.map(x=>`${x.day} ${x.s} ${x.title}`).join(' / '):'予定未選択';
+ const probs=[];
+ for(let i=1;i<r.length;i++){if(r[i].date!==r[i-1].date)continue;const gap=M(r[i].s)-M(r[i-1].e),need=transfer(r[i-1].zone,r[i].zone);if(gap<need)probs.push(`${r[i-1].title} → ${r[i].title}: 空き${gap}分に対して移動目安${need}分`)}
+ document.getElementById('travelCheck').innerHTML=probs.length?`<div class="travel-warn"><b>移動時間警告</b><br>${probs.join('<br>')}</div>`:`<div class="travel-ok"><b>移動時間チェック</b>：選択中の予定は概算バッファ内です。</div>`;
+}
+document.getElementById('modalClose').onclick=()=>document.getElementById('hotelModal').classList.remove('show');
+document.getElementById('hotelModal').onclick=e=>{if(e.target.id==='hotelModal')e.currentTarget.classList.remove('show')};
+document.getElementById('copy').onclick=async()=>{const t=rows().map(x=>`${x.day} ${x.s}–${x.e} ${x.title}`).join('\n');try{await navigator.clipboard.writeText(t);alert('旅程をコピーしました')}catch(e){prompt('コピーしてください',t)}};
+render();
+</script>
+</body>
+</html>
